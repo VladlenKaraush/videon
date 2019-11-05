@@ -1,0 +1,6 @@
+{
+  "mail": {
+    "password": "vidoop_password"
+  },
+  "jwt_private_key": "PRIVATE_KEY"
+}

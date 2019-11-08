@@ -10,7 +10,6 @@ const mongoose = require("mongoose");
 const app = express();
 
 const movies = require("./routes/movies");
-const home = require("./routes/home");
 const genres = require("./routes/genres");
 const customers = require("./routes/customers");
 const rentals = require("./routes/rentals");

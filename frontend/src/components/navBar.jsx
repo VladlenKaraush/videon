@@ -18,6 +18,10 @@ const NavBar = ({ user }) => {
           <NavLink className="nav-item nav-link" to="/customers">
             Customers
           </NavLink>
+        </div>
+      </div>
+      <div className="navbar-collapse collapse">
+        <div className="navbar-nav ml-auto">
           {!user && (
             <React.Fragment>
               <NavLink className="nav-item nav-link" to="/login">

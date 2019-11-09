@@ -1,3 +1,4 @@
 {
-  "name": "Express app"
+  "name": "Express app",
+  "jwt_private_key": "pass1234"
 }

@@ -20,9 +20,6 @@ mongoose
   .then(() => console.log("connected to MongoDB"))
   .catch(err => console.error("Could not connect to mongodb...", err));
 
-app.set("view engine", "pug");
-app.set("views", "./views");
-
 app.use(express.json());
 app.use(cors());
 app.options("/", cors());

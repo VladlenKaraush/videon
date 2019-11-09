@@ -35,7 +35,6 @@ app.use("/api/customers", customers);
 app.use("/api/rentals", rentals);
 app.use("/api/users", users);
 app.use("/api/auth", auth);
-app.use("/", home);
 
 console.log(" name: " + config.get("name"));
 console.log(" mail server: " + config.get("mail.host"));

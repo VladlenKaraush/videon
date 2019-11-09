@@ -1,5 +1,3 @@
-mongoimport backend/movies.json
-mongoimport backend/genres.json
 cd backend
 npm i
 export PRIVATE_KEY=INSERT_YOUR_KEY

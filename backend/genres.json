@@ -1,4 +1,0 @@
-{"_id":{"$oid":"5da02c4708791d181a7a2bfe"},"name":"Comedy","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5da02c4708791d181a7a2c02"},"name":"Action","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5da02c4708791d181a7a2c06"},"name":"Romance","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5dc055d9ae2d8b62a1b56512"},"name":"Thriller","__v":{"$numberInt":"0"}}

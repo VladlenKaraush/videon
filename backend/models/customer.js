@@ -10,7 +10,7 @@ const Customer = mongoose.model("Customer", customerSchema);
 
 const schema = Joi.object({
   name: Joi.string()
-    .min(3)
+    .min(5)
     .max(30)
     .required(),
   phone: Joi.string()

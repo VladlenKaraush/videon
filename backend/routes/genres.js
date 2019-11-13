@@ -15,19 +15,19 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", auth, async (req, res) => {
-  const genre = genreService.postGenre(req.body);
+  const genre = await genreService.postGenre(req.body);
   if (genre.error) res.status(genre.error.status).send(genre.error.msg);
   res.send(genre);
 });
 
 router.put("/:id", auth, async (req, res) => {
-  const genre = genreService.putGenre(req.body, req.params.id);
+  const genre = await genreService.putGenre(req.body, req.params.id);
   if (genre.error) res.status(genre.error.status).send(genre.error.msg);
   res.send(genre);
 });
 
 router.delete("/:id", [auth, admin], async (req, res) => {
-  const genre = genreService.deleteGenre(req.params.id);
+  const genre = await genreService.deleteGenre(req.params.id);
   if (genre.error) res.status(genre.error.status).send(genre.error.msg);
   res.send(genre);
 });

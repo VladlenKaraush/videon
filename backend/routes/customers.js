@@ -15,21 +15,22 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", auth, async (req, res) => {
-  const result = customerService.postCustomer(req.body);
+  const result = await customerService.postCustomer(req.body);
+  console.log(result);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   return res.send(result);
 });
 
 router.put("/:id", auth, async (req, res) => {
-  const result = customerService.putCustomer(req.params.id, req.body);
+  const result = await customerService.putCustomer(req.params.id, req.body);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   return res.send(result);
 });
 
 router.delete("/:id", auth, async (req, res) => {
-  const result = customerService.deleteCustomer(req.params.id);
+  const result = await customerService.deleteCustomer(req.params.id);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   return res.send(result);

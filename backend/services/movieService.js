@@ -12,9 +12,8 @@ function getMovieById(id) {
 async function postMovie(body) {
   const { error } = validate(body);
   if (error) return { error: { msg: error.details[0].message, status: 400 } };
-
   const genre = await Genre.findById(body.genreId);
-  if (!genre) return { error: "invalid genre" };
+  if (!genre) return { error: { msg: "invalid genre", status: 400 } };
   const movie = new Movie({
     title: body.title,
     numberInStock: body.numberInStock,
@@ -26,10 +25,11 @@ async function postMovie(body) {
   });
   try {
     await movie.save();
+    console.log("movie saved: ", movie);
     return movie;
   } catch (ex) {
     console.log(ex.message);
-    return ex.message;
+    return { error: { msg: ex.message, status: 400 } };
   }
 }
 async function putMovie(id, body) {

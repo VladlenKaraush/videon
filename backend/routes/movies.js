@@ -14,21 +14,22 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", auth, async (req, res) => {
-  const result = movieService.postMovie(req.body);
+  const result = await movieService.postMovie(req.body);
+  console.log("resut: ", result);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   return res.send(result);
 });
 
 router.put("/:id", auth, async (req, res) => {
-  const result = movieService.putMovie(req.params.id, req.body);
+  const result = await movieService.putMovie(req.params.id, req.body);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   return res.send(result);
 });
 
 router.delete("/:id", auth, async (req, res) => {
-  const result = movieService.deleteMovie(req.params.id);
+  const result = await movieService.deleteMovie(req.params.id);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   return res.send(result);

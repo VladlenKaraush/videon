@@ -21,8 +21,12 @@ const joiSchema = Joi.object({
     .min(3)
     .max(30)
     .required(),
-  numberInStock: Joi.number().min(0),
-  dailyRentalRate: Joi.number().min(0),
+  numberInStock: Joi.number()
+    .min(0)
+    .required(),
+  dailyRentalRate: Joi.number()
+    .min(0)
+    .required(),
   genreId: Joi.objectId().required()
 });
 

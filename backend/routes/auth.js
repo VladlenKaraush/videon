@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const Joi = require("@hapi/joi"); 
+const Joi = require("@hapi/joi");
 const _ = require("lodash");
 const { User } = require("../models/user");
+const authService = require("../services/authService");
 
 const schema = Joi.object({
   email: Joi.string()
@@ -22,24 +23,17 @@ function validate(req) {
 }
 
 router.post("/", async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  let user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send("Incorrect email or  password");
-
-  const passwordValid = await bcrypt.compare(req.body.password, user.password);
-  if (!passwordValid) res.status(400).send("Incorrect email or  password");
-
-  const token = user.generateAuthToken();
-  res.send(token);
+  const result = authService.postAuth(req.body);
+  if (result.error)
+    return res.status(result.error.status).send(result.error.msg);
+  return result;
 });
 
 router.delete("/:id", async (req, res) => {
-  const user = await User.findByIdAndRemove(req.params.id);
-  if (!user)
-    return res.status(404).send("The user with the given ID was not found");
-  res.send(user);
+  const result = authService.deleteUser(req.params.id);
+  if (result.error)
+    return res.status(result.error.status).send(result.error.msg);
+  return result;
 });
 
 module.exports = router;

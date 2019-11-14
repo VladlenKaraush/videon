@@ -12,7 +12,7 @@ import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
 import ProtectedRoute from "./components/common/protectedRoute";
 
-import "./tailwind.css";
+// import "./tailwind.css";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import Logout from "./components/logoutPage";

@@ -5,11 +5,11 @@ const _ = require("lodash");
 const userService = require("../services/userService");
 
 router.get("/me", auth, async (req, res) => {
-  res.send(await userService(req.user._id));
+  res.send(await userService.getMe(req.user._id));
 });
 
 router.post("/", async (req, res) => {
-  const result = await userService(req.body);
+  const result = await userService.postUser(req.body);
   if (result.error)
     return res.status(result.error.status).send(result.error.msg);
   res
